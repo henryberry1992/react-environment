@@ -21546,15 +21546,24 @@
 		function Layout() {
 			_classCallCheck(this, Layout);
 
-			return _possibleConstructorReturn(this, (Layout.__proto__ || Object.getPrototypeOf(Layout)).apply(this, arguments));
+			var _this = _possibleConstructorReturn(this, (Layout.__proto__ || Object.getPrototypeOf(Layout)).call(this));
+
+			_this.state = { time: new Date().toLocaleTimeString() };
+			return _this;
 		}
 
 		_createClass(Layout, [{
 			key: "render",
 			value: function render() {
+				var _this2 = this;
+
+				setInterval(function () {
+					_this2.setState({ time: new Date().toLocaleTimeString() });
+				}, 1000);
 				return _react2.default.createElement(
 					"div",
 					null,
+					this.state.time,
 					_react2.default.createElement(_Header2.default, null),
 					_react2.default.createElement(_Footer2.default, null)
 				);
